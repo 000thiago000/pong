@@ -16,7 +16,7 @@ if platform.system() == "Linux":
         if down == 0:
             perda = 0
         else:
-            perda = ((up + down)/down)*100
+                perda = abs(((up - down)/up)*100)
 
         #tempo total em ms
         tempo_total = str(int(round((now - program_starts) * 1000)))
@@ -29,7 +29,7 @@ if platform.system() == "Linux":
 
         #print estatisticas
         print ("\n--- " + host + " ping statistics ---\n" 
-        + total +" packets transmitted, " + str(up) + " received, " + str(perda) + "% packet loss, time " + tempo_total + "ms\n"
+        + total +" packets transmitted, " + str(up) + " received, " + str(round(perda)) + "% packet loss, time " + tempo_total + "ms\n"
         "rtt min/avg/max/mdev = " + str(min) + "/" + avg + "/" + str(max) + "/" + mdev + " ms")
 
         #finaliza script
